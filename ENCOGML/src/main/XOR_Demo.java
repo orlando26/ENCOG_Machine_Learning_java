@@ -35,7 +35,6 @@ public class XOR_Demo {
 			System.out.println("Epoch No " + epoch + ", Error: " + train.getError());
 			epoch++;
 		}while(train.getError() > 0.001);
-		
 		for (MLDataPair mlDataPair : trainingSet) {
 			MLData data = network.compute(mlDataPair.getInput());
 			System.out.println("Input: " + mlDataPair.getInput() + "Output: " + data.getData()[0]);
