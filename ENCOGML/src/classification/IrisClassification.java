@@ -24,20 +24,20 @@ import org.encog.util.simple.EncogUtility;
 
 public class IrisClassification {
 	public static void main(String[] args) {
-//		System.out.println("shuffle CSV Data file...");
-//		shuffle(Config.BASE_FILE);
-//		
-//		System.out.println("Segregate csv into traianing and evaluation...");
-//		segregate(Config.SHUFFLED_BASE_FILE);
-//		
-//		System.out.println("Normalize data...");
-//		normalize();
-//		
-//		System.out.println("Create Network...");
-//		createNetwork(Config.TRAINED_NETWORK_FILE);
-//		
-//		System.out.println("Train network...");
-//		trainNetwork();
+		System.out.println("shuffle CSV Data file...");
+		shuffle(Config.BASE_FILE);
+		
+		System.out.println("Segregate csv into traianing and evaluation...");
+		segregate(Config.SHUFFLED_BASE_FILE);
+		
+		System.out.println("Normalize data...");
+		normalize();
+		
+		System.out.println("Create Network...");
+		createNetwork(Config.TRAINED_NETWORK_FILE);
+		
+		System.out.println("Train network...");
+		trainNetwork();
 //		
 		System.out.println("Evaluate network...");
 		evaluate();

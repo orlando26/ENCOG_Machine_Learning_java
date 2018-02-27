@@ -28,23 +28,23 @@ import org.encog.util.simple.EncogUtility;
 public class AutoMPG {
 	public static void main(String[] args) {
 
-//		System.out.println("Shuffle file...");
-//		shuffle(AutoMPGConfig.BASE_FILE);
-//
-//		System.out.println("Segregate file into training and evaluation files...");
-//		segregate(AutoMPGConfig.SHUFFLED_BASE_FILE);
-//
-//		System.out.println("Normalize data...");
-//		normalize();
-//
-//		System.out.println("Create the Neural Network...");
-//		createNetwork(AutoMPGConfig.TRAINED_NETWORK_FILE);
-//
-//		System.out.println("Train neural network...");
-//		trainNetwork();
+		System.out.println("Shuffle file...");
+		shuffle(AutoMPGConfig.BASE_FILE);
+
+		System.out.println("Segregate file into training and evaluation files...");
+		segregate(AutoMPGConfig.SHUFFLED_BASE_FILE);
+
+		System.out.println("Normalize data...");
+		normalize();
+
+		System.out.println("Create the Neural Network...");
+		createNetwork(AutoMPGConfig.TRAINED_NETWORK_FILE);
+
+		System.out.println("Train neural network...");
+		trainNetwork();
 		
-		System.out.println("Evaluation...");
-		evaluate();
+//		System.out.println("Evaluation...");
+//		evaluate();
 	}
 
 	public static void shuffle(String source){
