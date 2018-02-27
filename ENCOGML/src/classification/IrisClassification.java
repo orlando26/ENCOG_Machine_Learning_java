@@ -2,14 +2,12 @@ package classification;
 
 import java.io.File;
 
-import org.encog.Encog;
 import org.encog.app.analyst.AnalystFileFormat;
 import org.encog.app.analyst.EncogAnalyst;
 import org.encog.app.analyst.csv.normalize.AnalystNormalizeCSV;
 import org.encog.app.analyst.csv.segregate.SegregateCSV;
 import org.encog.app.analyst.csv.segregate.SegregateTargetPercent;
 import org.encog.app.analyst.csv.shuffle.ShuffleCSV;
-import org.encog.app.analyst.script.normalize.AnalystNormalize;
 import org.encog.app.analyst.wizard.AnalystWizard;
 import org.encog.engine.network.activation.ActivationLinear;
 import org.encog.engine.network.activation.ActivationTANH;
@@ -17,12 +15,10 @@ import org.encog.mathutil.Equilateral;
 import org.encog.ml.data.MLData;
 import org.encog.ml.data.MLDataPair;
 import org.encog.ml.data.MLDataSet;
-import org.encog.ml.data.basic.BasicMLDataSet;
 import org.encog.neural.networks.BasicNetwork;
 import org.encog.neural.networks.layers.BasicLayer;
 import org.encog.neural.networks.training.propagation.resilient.ResilientPropagation;
 import org.encog.persist.EncogDirectoryPersistence;
-import org.encog.util.arrayutil.ClassItem;
 import org.encog.util.csv.CSVFormat;
 import org.encog.util.simple.EncogUtility;
 
@@ -42,7 +38,7 @@ public class IrisClassification {
 //		
 //		System.out.println("Train network...");
 //		trainNetwork();
-		
+//		
 		System.out.println("Evaluate network...");
 		evaluate();
 	}
@@ -120,7 +116,6 @@ public class IrisClassification {
 	public static void evaluate(){
 		BasicNetwork network = (BasicNetwork)EncogDirectoryPersistence.loadObject(new File(Config.TRAINED_NETWORK_FILE));
 		EncogAnalyst analyst = new EncogAnalyst();
-		
 		analyst.load(new File(Config.ANALYST_FILE));
 		MLDataSet evaluationSet = EncogUtility.loadCSV2Memory(Config.NORMALIZED_EVAL_FILE, network.getInputCount(),
 				network.getOutputCount(), true, CSVFormat.ENGLISH, false);
@@ -156,6 +151,9 @@ public class IrisClassification {
 		System.out.println("Total test count: " + count);
 		System.out.println("Total correct prediction count: " + CorrectCount);
 		System.out.println("% Success: " + (CorrectCount * 100)/count);
+		
+		System.out.println("---------------Weights values------------------");
+		System.out.println(network.dumpWeightsVerbose());
 	}
 	
 }

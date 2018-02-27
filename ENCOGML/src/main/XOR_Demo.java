@@ -40,6 +40,7 @@ public class XOR_Demo {
 			System.out.println("Input: " + mlDataPair.getInput() + "Output: " + data.getData()[0]);
 		}
 		
+		
 	}
 	
 	private static BasicNetwork createNetwork(){

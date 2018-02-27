@@ -1,7 +1,5 @@
 package classification;
 
-import java.net.URL;
-
 public class Config {
 	private static String basePath = "/classification/data/";
 	
