@@ -24,20 +24,20 @@ import org.encog.util.simple.EncogUtility;
 
 public class IrisClassification {
 	public static void main(String[] args) {
-		System.out.println("shuffle CSV Data file...");
-		shuffle(Config.BASE_FILE);
-		
-		System.out.println("Segregate csv into traianing and evaluation...");
-		segregate(Config.SHUFFLED_BASE_FILE);
-		
-		System.out.println("Normalize data...");
-		normalize();
-		
-		System.out.println("Create Network...");
-		createNetwork(Config.TRAINED_NETWORK_FILE);
-		
-		System.out.println("Train network...");
-		trainNetwork();
+//		System.out.println("shuffle CSV Data file...");
+//		shuffle(Config.BASE_FILE);
+//		
+//		System.out.println("Segregate csv into traianing and evaluation...");
+//		segregate(Config.SHUFFLED_BASE_FILE);
+//		
+//		System.out.println("Normalize data...");
+//		normalize();
+//		
+//		System.out.println("Create Network...");
+//		createNetwork(Config.TRAINED_NETWORK_FILE);
+//		
+//		System.out.println("Train network...");
+//		trainNetwork();
 //		
 		System.out.println("Evaluate network...");
 		evaluate();
@@ -125,14 +125,16 @@ public class IrisClassification {
 		
 		for (MLDataPair item : evaluationSet) {
 			count++;
-			MLData output = network.compute(item.getInput());
 			
+			MLData output = network.compute(item.getInput());
+			System.out.println(output);
 			double sepal_l = analyst.getScript().getNormalize().getNormalizedFields().get(0).deNormalize(item.getInputArray()[0]);
 			double sepal_w = analyst.getScript().getNormalize().getNormalizedFields().get(1).deNormalize(item.getInputArray()[1]);
 			double petal_l = analyst.getScript().getNormalize().getNormalizedFields().get(2).deNormalize(item.getInputArray()[2]);
 			double petal_w = analyst.getScript().getNormalize().getNormalizedFields().get(3).deNormalize(item.getInputArray()[3]);
 			
 			int classCount = analyst.getScript().getNormalize().getNormalizedFields().get(4).getClasses().size();
+			System.out.println(classCount);
 			double normalizationHigh = analyst.getScript().getNormalize().getNormalizedFields().get(4).getNormalizedHigh();
 			double normalizationLow = analyst.getScript().getNormalize().getNormalizedFields().get(4).getNormalizedLow();
 			
@@ -155,5 +157,7 @@ public class IrisClassification {
 		System.out.println("---------------Weights values------------------");
 		System.out.println(network.dumpWeightsVerbose());
 	}
+	
+	
 	
 }

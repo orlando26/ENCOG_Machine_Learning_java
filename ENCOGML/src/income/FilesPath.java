@@ -19,4 +19,6 @@ public class FilesPath {
 	public static final String ANALYST_FILE = BASE_PATH + "adult_analyst.ega";
 	
 	public static final String TRAINED_NETWORK_FILE = BASE_PATH + "adult_network.eg";
+	
+	public static final String SINGLE_EVAL = BASE_PATH + "single_eval.csv";
 }
